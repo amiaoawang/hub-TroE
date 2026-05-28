@@ -1,0 +1,19 @@
+CLUE TNEWS，53,360 条训练数据
+15 类新闻标题
+BERT 参数量  ： 110M（bert-base-chinese，全量微调）
+fine-tuning 准确率 ：~51%（1 epoch）/ ~56%+（3 epoch，val）
+BERT Macro F1 | ~51%（1 epoch）/ ~55%+（3 epoch，val）
+LLM SFT 模型 | Qwen2-0.5B-Instruct（500M）+ LoRA
+LoRA 可训练参数 | 1,081,344（占全参数 **0.22%**，r=8）
+SFT 训练数据量 | 5,000 条（BERT 的 9.4%）
+SFT 训练时间 | 约 110 分钟（ Intel(R) Arc(TM) 130T GPU (16GB)，3 epoch）
+SFT val 准确率 | **56.0%**（500条，seed=42）
+
+│ BERT fine-tune（全部 53K 条，3 epochs）   │ ~0.51~56 │
+│ Qwen2-0.5B zero-shot                     │ 0.2900（500 条） │
+│ Qwen2-0.5B SFT（LoRA，500 条样本）    │ 0.5580   │
+
+SFT 相比 zero-shot 提升了0.27
+LLM zero-shot 在区分明显的类别上表现好，而财经和证券常常混淆
+fine-tuning 数据量越多效果相对越好，只用 1000 条训练数据会很快过拟合。
+换成 few-shot（每类给 2 个示例），准确率会提升0.03左右
