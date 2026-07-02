@@ -1,0 +1,7 @@
+吞吐对比（Qwen2-0.5B / RTX 3070 8GB / WSL2）
+
+| 模式 | 50 请求总耗时 | QPS | Generation tok/s | 相对 vLLM |
+|------|--------------|-----|------------------|-----------|
+| [A] transformers 串行 | **58.98s** | 0.83 | 63 | 0.018× |
+| [B] transformers batch=8（padding）| 11.85s | 3.73 | 306 | 0.083× |
+| [C] vLLM continuous batching | **1.02s** | **50.03** | **3404** | **1.00×** |
