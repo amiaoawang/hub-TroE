@@ -1,0 +1,10 @@
+[
+  {
+    "question": "这份 PPT 的核心结论是什么？",
+    "expected": "（可选）参考答案，留空也行"
+  },
+  {
+    "question": "PPT 中提到了哪些关键指标？",
+    "expected": ""
+  }
+]

@@ -1,0 +1,16 @@
+# 基础依赖（必装）
+python-pptx>=0.6.23
+chromadb>=0.4.22
+sentence-transformers>=2.3.0
+openai>=1.12.0
+
+# OCR 依赖（可选，仅启用 --use-ocr 时需要）
+# 安装方式：pip install torch torchvision transformers Pillow einops addict easydict pymupdf
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.57.1
+Pillow>=9.0.0
+einops>=0.6.0
+addict>=2.4.0
+easydict>=1.10
+pymupdf>=1.23.0
